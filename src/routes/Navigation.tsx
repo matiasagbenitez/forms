@@ -1,5 +1,6 @@
-import { BrowserRouter, NavLink, Navigate } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, NavLink, Navigate, Routes, Route } from "react-router-dom";
+import { RegisterPage } from "../app/pages/RegisterPage";
+import { FormikBasicPage } from "../app/pages/FormikBasicPage";
 import logo from "../logo.svg";
 
 export const Navigation = () => {
@@ -11,36 +12,27 @@ export const Navigation = () => {
           <ul>
             <li>
               <NavLink
-                to="/"
+                to="/register"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                Home
+                RegisterPage
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/about"
+                to="/formik-basic"
                 className={({ isActive }) => (isActive ? "nav-active" : "")}
               >
-                About
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/contact"
-                className={({ isActive }) => (isActive ? "nav-active" : "")}
-              >
-                Users
+                FormikBasicPage
               </NavLink>
             </li>
           </ul>
         </nav>
 
         <Routes>
-          <Route path="/about" element={<h1>About</h1>} />
-          <Route path="/contact" element={<h1>Contact</h1>} />
-          <Route path="/" element={<h1>Home</h1>} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/formik-basic" element={<FormikBasicPage />} />
+          <Route path="*" element={<Navigate to="/register" replace />} />
         </Routes>
       </div>
     </BrowserRouter>
